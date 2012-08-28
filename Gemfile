@@ -24,8 +24,16 @@ end
 group :development do
 	gem 'haml-rails'
 	gem 'rspec-rails'
+	gem 'guard'
+	gem 'guard-rspec'
 end
 
+group :test do
+	gem 'shoulda-matchers'
+	gem 'faker'
+end
+
+gem 'fabrication'
 gem 'haml'
 gem 'jquery-rails'
 
