@@ -9,5 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-  has_many :classrooms, :foreign_key => "owner_id"
+  has_many :owned_classrooms, :class_name => "Classroom", :foreign_key => "owner_id"
+  has_many :memberships
+  has_many :classrooms, :through => :memberships
 end
