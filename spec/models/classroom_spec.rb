@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Classroom do
   it { should belong_to(:user) }
   it { should have_many(:memberships) }
+  it { should have_many(:invitations)}
   it { should have_many(:users).through(:memberships) }
 
   it "should validate presence of name field" do
@@ -33,6 +34,5 @@ describe Classroom do
       uid = @classroom1.uid
       (@classroom1 == Classroom.find(uid)).should eq(true)
     end
-
   end
 end

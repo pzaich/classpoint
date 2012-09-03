@@ -2,6 +2,7 @@ Classpoint::Application.routes.draw do
   devise_for :users
   resources :classrooms do
     resources :memberships
+    resources :invitations
   end
   root :to => 'static#home'
 
