@@ -1,6 +1,8 @@
 Classpoint::Application.routes.draw do
   devise_for :users
-  resources :classrooms
+  resources :classrooms do
+    resources :memberships
+  end
   root :to => 'static#home'
 
   # The priority is based upon order of creation:
