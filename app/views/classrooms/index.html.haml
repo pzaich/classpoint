@@ -1,2 +1,5 @@
-- @classrooms.each do |classroom|
-	%p #{classroom.name}
+%ul
+	- @classrooms.each do |classroom|
+		%li
+			%p #{classroom.name}
+			= link_to "Invite", new_classroom_invitation_path(classroom)

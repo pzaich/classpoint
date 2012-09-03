@@ -5,7 +5,6 @@ class Invitation < ActiveRecord::Base
   belongs_to :classroom
 
   validates_presence_of :email
-  validates_uniqueness_of :email, :scope => :classroom_id
 
   private 
   	def downcase_email

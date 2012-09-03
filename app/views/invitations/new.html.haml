@@ -1,0 +1,5 @@
+= form_for [@classroom, @invitation] do |f|
+	= f.label :email
+	= f.text_field :email
+	= f.hidden_field :classroom_id, :value => @classroom.id
+	= f.submit

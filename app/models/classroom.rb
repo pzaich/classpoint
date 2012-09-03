@@ -11,6 +11,11 @@ class Classroom < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :owner_id
+
+  def retrieve_member(email)
+    self.users.find_by_email(email)
+  end
+
   private
 	  def set_uid
 	  	self.uid = Digest::MD5.hexdigest("#{self.id}" + "#{self.name}")

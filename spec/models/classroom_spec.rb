@@ -35,4 +35,21 @@ describe Classroom do
       (@classroom1 == Classroom.find(uid)).should eq(true)
     end
   end
+
+  context "#retrieve_member" do
+    before do
+      user = Fabricate(:user)
+      @classroom = user.owned_classrooms.create(:name => "followers")
+      @user_new = Fabricate(:user)
+    end
+
+    it "should the user object if the user belongs to the classroom" do   
+      @classroom.users << @user_new
+      @classroom.retrieve_member(@user_new.email).should eq(@user_new)
+    end
+
+    it "should return nil if user with email does not belong to the classroom" do
+      @classroom.retrieve_member(@user_new.email).should eq(nil)
+    end
+  end
 end

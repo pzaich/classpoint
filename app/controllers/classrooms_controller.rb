@@ -2,7 +2,7 @@ class ClassroomsController < ApplicationController
 	before_filter :authenticate_user!
 
 	def index
-		@classrooms = current_user.classrooms.all
+		@classrooms = current_user.owned_classrooms
 	end
 
 	def new
