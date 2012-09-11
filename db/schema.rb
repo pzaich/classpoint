@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120903065238) do
+ActiveRecord::Schema.define(:version => 20120911104733) do
 
   create_table "classrooms", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120903065238) do
     t.integer  "classroom_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "uid"
   end
 
   add_index "invitations", ["classroom_id"], :name => "index_invitations_on_classroom_id"
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20120903065238) do
     t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "invite_uid"
   end
 
   add_index "memberships", ["classroom_id"], :name => "index_memberships_on_classroom_id"

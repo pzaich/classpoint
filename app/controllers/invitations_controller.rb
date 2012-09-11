@@ -16,6 +16,4 @@ class InvitationsController < ApplicationController
 			render new_classroom_invitation_path(classroom)
 		end
 	end
-
-
 end

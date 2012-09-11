@@ -3,7 +3,6 @@ class Classroom < ActiveRecord::Base
   attr_accessible :name, :owner_id
   friendly_id :uid
   before_create :set_uid
-
   belongs_to :user, :foreign_key => "owner_id"
   has_many :memberships
   has_many :invitations

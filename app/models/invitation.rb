@@ -1,13 +1,17 @@
 class Invitation < ActiveRecord::Base
 	before_validation :downcase_email
-  attr_accessible :classroom_id, :email
+	before_create :set_uid
+  attr_accessible :classroom_id, :email, :uid
 
   belongs_to :classroom
-
   validates_presence_of :email
 
   private 
   	def downcase_email
   		self.email = email.downcase unless self.email.nil?
   	end
+
+  	def set_uid
+	  	self.uid = Digest::MD5.hexdigest("#{self.id}" + "#{self.email}")
+	  end
 end

@@ -9,4 +9,10 @@ describe Invitation do
   	@classroom = user.classrooms.create(:name => "This is a new classroom")
   end
 
+  it "should have a unique invitation Uid set before validation" do
+  	invite = @classroom.invitations.new(:email => "bob@lobblah.org")
+  	invite.save
+  	invite.uid.nil?.should eq(false) 
+  end
+
 end

@@ -41,10 +41,11 @@ describe Classroom do
       user = Fabricate(:user)
       @classroom = user.owned_classrooms.create(:name => "followers")
       @user_new = Fabricate(:user)
+      @invite = @classroom.invitations.create(:email => @user_new.email)
     end
 
-    it "should the user object if the user belongs to the classroom" do   
-      @classroom.users << @user_new
+    it "should add the user object to the classroom if the user belongs to the classroom" do
+      Membership.create(:classroom_id => @classroom.id, :user_id => @user_new.id, :invite_uid => @invite.uid)  
       @classroom.retrieve_member(@user_new.email).should eq(@user_new)
     end
 
