@@ -12,6 +12,6 @@ class Invitation < ActiveRecord::Base
   	end
 
   	def set_uid
-	  	self.uid = Digest::MD5.hexdigest("#{self.id}" + "#{self.email}")
+	  	self.uid = Digest::MD5.hexdigest("#{self.classroom_id}" + "#{Invitation.last.id + 1}" + "#{self.email}")
 	  end
 end

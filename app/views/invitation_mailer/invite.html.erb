@@ -4,6 +4,6 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   </head>
 	<body>
-		<p> This is a test. </p>
+		<p>Click <%= link_to 'here', new_classroom_membership_url(@classroom, :invite_uid => @invitation.uid) %> to register for your classroom.</p>
 	</body>
 </html>

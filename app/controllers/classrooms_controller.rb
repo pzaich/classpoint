@@ -10,7 +10,7 @@ class ClassroomsController < ApplicationController
 	end
 
 	def create
-		@classroom = current_user.classrooms.new(params[:classroom])
+		@classroom = current_user.owned_classrooms.new(params[:classroom])
 		if @classroom.save
 			redirect_to classrooms_path, :flash => {:success => "Classroom #{@classroom.name} successfully created."}
 		else
