@@ -6,6 +6,7 @@ class Classroom < ActiveRecord::Base
   belongs_to :user, :foreign_key => "owner_id"
   has_many :memberships
   has_many :invitations
+  has_many :questions
   has_many :users, :through => :memberships
 
   validates_presence_of :name

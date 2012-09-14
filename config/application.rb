@@ -62,5 +62,9 @@ module Classpoint
     config.autoload_paths += %W(#{config.root}/lib/modules/)
 
     config.action_mailer.default_url_options = { :host => "www.classpoint.io" }
+    
+    config.generators do |g|
+        g.view_specs false
+    end
   end
 end

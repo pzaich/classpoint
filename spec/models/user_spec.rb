@@ -5,6 +5,7 @@ describe User do
 
 	it { should have_many(:owned_classrooms) }
 	it { should have_many(:memberships) }
+	it { should have_many(:questions) }
 	it { should have_many(:classrooms).through(:memberships) }
 
 	it "should generate a username from the email of the user when user is created" do

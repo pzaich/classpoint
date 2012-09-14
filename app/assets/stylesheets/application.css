@@ -14,3 +14,8 @@
 body {
 	padding-top: 40px;
 }
+
+.avatar {
+	display: block;
+	float: right;
+}

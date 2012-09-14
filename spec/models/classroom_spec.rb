@@ -3,7 +3,8 @@ require 'spec_helper'
 describe Classroom do
   it { should belong_to(:user) }
   it { should have_many(:memberships) }
-  it { should have_many(:invitations)}
+  it { should have_many(:invitations) }
+  it { should have_many(:questions) }
   it { should have_many(:users).through(:memberships) }
 
   it "should validate presence of name field" do
