@@ -17,6 +17,6 @@ class Classroom < ActiveRecord::Base
 
   private
 	  def set_uid
-	  	self.uid = Digest::MD5.hexdigest("#{Classroom.last.id + 1}" + "#{self.name}")
+      self.uid = SecureRandom.uuid
 	  end
 end

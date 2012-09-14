@@ -7,5 +7,6 @@
 					-if !user_signed_in?
 						=link_to "Sign in", new_user_session_path
 					-else
+						=insert_avatar(current_user)
 						=link_to "Sign Out", destroy_user_session_path, :method => :delete
 
