@@ -12,7 +12,8 @@ class MembershipsController < ApplicationController
 		if @membership.save
 			redirect_to classroom_path(params[:classroom_id]), :flash => { :success => "Classroom successfully joined!"}
 		else
-			render 'new', :flash => {:error => "You were not able to join the classroom."}
+			flash[:error] = "You were not able to join the classroom."
+			render 'new'
 		end
 	end
 

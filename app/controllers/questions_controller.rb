@@ -11,7 +11,8 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to classroom_path(@classroom), :flash => { :success => "Question has been added." }
     else
-      render 'new', :flash => {:error => "Oops, something went wrong."}
+      flash[:error] = "Oops, something went wrong."
+      render 'new'
     end
   end
 

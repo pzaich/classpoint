@@ -14,7 +14,8 @@ class ClassroomsController < ApplicationController
 		if @classroom.save
 			redirect_to classrooms_path, :flash => {:success => "Classroom #{@classroom.name} successfully created."}
 		else
-			render 'new', :error => "Oops, something went wrong."
+			flash[:error] = "Oops, something went wrong."
+			render 'new'
 		end
 	end
 

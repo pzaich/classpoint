@@ -13,6 +13,7 @@ class InvitationsController < ApplicationController
 				redirect_to new_classroom_invitation_path(classroom), :flash => {:success => "Invitation for #{invitation.email} send successfully."}
 			end
 		else
+			flash[:error] => "Could not create invitation."
 			render new_classroom_invitation_path(classroom)
 		end
 	end
