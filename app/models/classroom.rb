@@ -1,5 +1,6 @@
 class Classroom < ActiveRecord::Base
 	extend FriendlyId
+  include UidGenerator
   attr_accessible :name, :owner_id
   friendly_id :uid
   before_create :set_uid
@@ -15,9 +16,4 @@ class Classroom < ActiveRecord::Base
   def retrieve_member(email)
     self.users.find_by_email(email)
   end
-
-  private
-	  def set_uid
-      self.uid = SecureRandom.uuid
-	  end
 end
