@@ -20,6 +20,5 @@ class MembershipsController < ApplicationController
 		def dump_sessions
 			session.delete(:classroom_uid)
 			session.delete(:invite_uid)
- 		end
-	
+ 		end	
 end
