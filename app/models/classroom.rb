@@ -8,12 +8,12 @@ class Classroom < ActiveRecord::Base
   has_many :memberships
   has_many :invitations
   has_many :questions
-  has_many :users, :through => :memberships
+  has_many :members, :through => :memberships, :class_name => 'User'
 
   validates_presence_of :name
   validates_presence_of :owner_id
 
   def retrieve_member(email)
-    self.users.find_by_email(email)
+    self.members.find_by_email(email)
   end
 end

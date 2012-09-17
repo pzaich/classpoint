@@ -4,6 +4,7 @@ Classpoint::Application.routes.draw do
     resources :memberships
     resources :invitations
     resources :questions
+    resources :users
   end
   root :to => 'static#home'
 

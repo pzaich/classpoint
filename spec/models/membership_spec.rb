@@ -19,14 +19,14 @@ describe Membership do
   end
 
   it "should validate the presence of a real classroom" do
-  	membership = Membership.new(:user_id => user, :classroom_id => @classroom.id, :invite_uid => @invite.uid)
+  	membership = Membership.new(:user_id => user.id, :classroom_id => 45655, :invite_uid => @invite.uid)
   	membership.save.should eq(false)
   end
 
   it "should validate the uniqueness of the membership relationship" do
   	membership = Membership.create(:user_id => user.id, :classroom_id => @classroom.id, :invite_uid => @invite.uid)
   	membership = Membership.new(:user_id => user.id, :classroom_id => @classroom.id, :invite_uid => @invite.uid)
-		membership.save.should eq(false)  
+		membership.save.should eq(false)
   end
 
   it "should validate the presence of a UID inputted at creation" do 
