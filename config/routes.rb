@@ -3,9 +3,13 @@ Classpoint::Application.routes.draw do
   resources :classrooms do
     resources :memberships
     resources :invitations
-    resources :questions
+    resources :questions do
+      resources :answers, :only => [:new, :create]
+    end
     resources :users
+    resources :answers, :only => [:show, :edit, :update]
   end
+
   root :to => 'static#home'
 
   # The priority is based upon order of creation:

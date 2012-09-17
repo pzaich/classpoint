@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   def create  
     @question = Question.new(params[:question].merge({:user_id => current_user, :classroom_id => @classroom}))
     if @question.save
-      redirect_to classroom_path(@classroom), :flash => { :success => "Question has been added." }
+      redirect_to classroom_question_path(@classroom, @question), :flash => { :success => "Question has been added." }
     else
       flash[:error] = "Oops, something went wrong."
       render 'new'
@@ -17,6 +17,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.find(params[:id])
   end
 
   def edit
