@@ -1,2 +1,8 @@
 %h3 #{@question.title}
 %p #{@question.detail}
+
+%ul
+- @question.answers.each do |answer|
+	%li #{answer.body}
+
+= render :partial => 'answers/form'

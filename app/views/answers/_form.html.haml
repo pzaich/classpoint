@@ -1,0 +1,8 @@
+%h3 Submit An Answer
+= form_for [@classroom, @question, @answer] do |f|
+	= render 'shared/error_messages', :target => @answer
+
+	= f.label :body
+	= f.text_area :body
+
+	= f.submit

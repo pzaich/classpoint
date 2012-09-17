@@ -17,14 +17,14 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @classroom = Classroom.find_by_uid(params[:classroom_id])
+    @answer = Answer.new
   end
 
   def edit
   end
 
   def update
-
   end
 
   private
